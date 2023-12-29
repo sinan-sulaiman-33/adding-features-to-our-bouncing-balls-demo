@@ -156,7 +156,7 @@ while (balls.length < 25) {
   para.textCount = 'Ball count: ' + count;
 }
 
-const Eball = new Evilcircle(random(0,width),random(0,height));
+const Eball = new EvilCircle(random(0,width),random(0,height));
 
 function loop() {
    ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
