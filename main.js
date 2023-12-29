@@ -12,10 +12,6 @@ function random(min,max) {
   return num;
 };
 
-function random(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
 function randomRGB() {
   return `rgb(${random(0, 255)},${random(0, 255)},${random(0, 255)})`;
 }
@@ -26,7 +22,6 @@ class Shape {
    this.y = y;
    this.velX = velX;
    this.velY = velY;
-   this.exists = true;
  }
 }
 
@@ -48,19 +43,19 @@ class Ball extends Shape {
 
    update() {
       if ((this.x + this.size) >= width) {
-         this.velX = -(Math.abs(this.velX));
+         this.velX = -(this.velX);
       }
 
       if ((this.x - this.size) <= 0) {
-         this.velX = Math.abs(this.velX);
+         this.velX = -(this.velX);
       }
 
       if ((this.y + this.size) >= height) {
-         this.velY = -(Math.abs(this.velY));
+         this.velY = -(this.velX);
       }
 
       if ((this.y - this.size) <= 0) {
-         this.velY = Math.abs(this.velY);
+         this.velY = -(this.velX);
       }
 
       this.x += this.velX;
@@ -116,16 +111,16 @@ class EvilCircle extends Space {
 
   checkBounds() {
       if ((this.x + this.size) >= width) {
-         this.velX -= this.size;
+         this.x -= this.size;
       }
       if ((this.x - this.size) <= 0) {
-         this.velX += this.size;
+         this.x += this.size;
       }
       if ((this.y + this.size) >= height) {
-         this.velY -= this.size;
+         this.y -= this.size;
       }
       if ((this.y - this.size) <= 0) {
-         this.velY += this.size;
+         this.y += this.size;
       }
    }
   collisionDetect() {
@@ -134,6 +129,7 @@ class EvilCircle extends Space {
         const dx = this.x - ball.x;
         const dy = this.y - ball.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
+        
         if (distance < this.size + ball.size) {
           ball.exists = false;
           count--;
@@ -148,17 +144,17 @@ const balls = [];
 while (balls.length < 25) {
    const size = random(10,20);
    const ball = new Ball(
-      // ball position always drawn at least one ball width
-      // away from the edge of the canvas, to avoid drawing errors
-      random(0 + size,width - size),
-      random(0 + size,height - size),
-      random(-7,7),
-      random(-7,7),
+      random(0 + size, width - size),
+      random(0 + size, height - size),
+      random(-7, 7),
+      random(-7, 7),
       randomRGB(),
       size
    );
 
   balls.push(ball);
+  count++;
+  para.textCount = 'Ball count: ' + count;
 }
 
 const Eball = new Evilcircle(random(0,width),random(0,height));
@@ -175,7 +171,7 @@ function loop() {
      }
    }
    Eball.draw();
-   Eball.checkbounds();
+   Eball.checkBounds();
    Eball.collisionDetect();
 
    requestAnimationFrame(loop);
