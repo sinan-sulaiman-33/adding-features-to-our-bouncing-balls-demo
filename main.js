@@ -75,7 +75,6 @@ collisionDetect() {
     }
   }
  }
-}
 
 class EvilCircle extends Space {
   constructor(x,y) {
