@@ -32,7 +32,6 @@ class Ball extends Shape {
     this.size = size;
     this.exists = true;
   }
-}
 
    draw() {
       ctx.beginPath();
@@ -137,7 +136,7 @@ class EvilCircle extends Space {
     }
   }
  } 
-
+}
 const balls = [];
 
 while (balls.length < 25) {
