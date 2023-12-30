@@ -1,4 +1,4 @@
-const para = document.querySelector('p');
+ const para = document.querySelector('p');
 let count = 0;
 //wrong above
 
@@ -97,17 +97,17 @@ class EvilCircle extends Space {
     window.addEventListener("keydown", (e) => {
       switch (e.key) {
         case "a":
-        this.x -= this.velX;
-        break;
+         this.x -= this.velX;
+         break;
         case "d":
          this.x += this.velX;
-        break;
+         break;
         case "w":
           this.y -= this.velY;
-        break;
+          break;
         case "s":
           this.y += this.velY;
-        break;
+          break;
       }
     });
 }
@@ -168,11 +168,11 @@ while (balls.length < 25) {
   balls.push(ball);
   //no text below
   count++;
-  para.textCount = 'Ball count: ' + count;
+  para.textContent = 'Ball count: ' + count;
 }
 
 //no const Eball
-const Eball = new EvilCircle(random(0,width),random(0,height));
+const EBall = new EvilCircle(random(0,width),random(0,height));
 
 function loop() {
    ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
@@ -187,9 +187,9 @@ function loop() {
      }
    }
    //no text below
-   Eball.draw();
-   Eball.checkBounds();
-   Eball.collisionDetect();
+   EBall.draw();
+   EBall.checkBounds();
+   EBall.collisionDetect();
 
    requestAnimationFrame(loop);
 }
