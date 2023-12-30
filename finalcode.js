@@ -18,11 +18,11 @@ function randomRGB() {
 
 class Shape {
   constructor(x, y, velX, velY) {
-   this.x = x;
-   this.y = y;
-   this.velX = velX;
-   this.velY = velY;
- }
+    this.x = x;
+    this.y = y;
+    this.velX = velX;
+    this.velY = velY;
+  }
 }
 
 class Ball extends Shape {
@@ -41,25 +41,25 @@ class Ball extends Shape {
    }
 
    update() {
-      if ((this.x + this.size) >= width) {
-         this.velX = -(this.velX);
-      }
+    if ((this.x + this.size) >= width) {
+      this.velX = -(this.velX);
+    }
 
-      if ((this.x - this.size) <= 0) {
-         this.velX = -(this.velX);
-      }
+    if ((this.x - this.size) <= 0) {
+      this.velX = -(this.velX);
+    }
 
-      if ((this.y + this.size) >= height) {
-         this.velY = -(this.velY);
-      }
+    if ((this.y + this.size) >= height) {
+      this.velY = -(this.velY);
+    }
 
-      if ((this.y - this.size) <= 0) {
-         this.velY = -(this.velY);
-      }
+    if ((this.y - this.size) <= 0) {
+      this.velY = -(this.velY);
+    }
 
-      this.x += this.velX;
-      this.y += this.velY;
-   }
+    this.x += this.velX;
+    this.y += this.velY;
+  }
 
 collisionDetect() {
   for (const ball of balls) {
@@ -74,6 +74,7 @@ collisionDetect() {
     }
   }
  }
+}
 
 class EvilCircle extends Space {
   constructor(x,y) {
@@ -108,19 +109,19 @@ class EvilCircle extends Space {
   }
 
   checkBounds() {
-      if ((this.x + this.size) >= width) {
-         this.x -= this.size;
-      }
-      if ((this.x - this.size) <= 0) {
-         this.x += this.size;
-      }
-      if ((this.y + this.size) >= height) {
-         this.y -= this.size;
-      }
-      if ((this.y - this.size) <= 0) {
-         this.y += this.size;
-      }
-   }
+    if ((this.x + this.size) >= width) {
+      this.x -= this.size;
+    }
+    if ((this.x - this.size) <= 0) {
+      this.x += this.size;
+    }
+    if ((this.y + this.size) >= height) {
+      this.y -= this.size;
+    }
+    if ((this.y - this.size) <= 0) {
+      this.y += this.size;
+    }
+  }
   collisionDetect() {
     for (const ball of balls) {
       if (ball.exists) {
@@ -135,8 +136,9 @@ class EvilCircle extends Space {
       }
     }
   }
- } 
+ }
 }
+
 const balls = [];
 
 while (balls.length < 25) {
