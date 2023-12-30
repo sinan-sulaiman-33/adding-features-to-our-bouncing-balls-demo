@@ -76,7 +76,7 @@ collisionDetect() {
  }
 }
 
-class EvilCircle extends Space {
+class EvilCircle extends Shape {
   constructor(x,y) {
     super(x, y, 20, 20);
     this.color = "white";
