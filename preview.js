@@ -15,27 +15,24 @@ function random(min,max) {
 function randomRGB() {
   return `rgb(${random(0, 255)},${random(0, 255)},${random(0, 255)})`;
 }
-class Shape {
 
+class Shape {
   constructor(x, y, velX, velY) {
     this.x = x;
     this.y = y;
     this.velX = velX;
     this.velY = velY;
   }
-
 }
 
 class Ball extends Shape {
-
   constructor(x, y, velX, velY, color, size) {
     super(x, y, velX, velY);
-
     this.color = color;
     this.size = size;
     this.exists = true;
   }
-
+  
   draw() {
     ctx.beginPath();
     ctx.fillStyle = this.color;
@@ -64,7 +61,6 @@ class Ball extends Shape {
     this.y += this.velY;
   }
 
-
   collisionDetect() {
      for (const ball of balls) {
         if (!(this === ball) && ball.exists) {
@@ -78,14 +74,11 @@ class Ball extends Shape {
         }
      }
   }
-
 }
 
 class EvilCircle extends Shape {
-
   constructor(x, y) {
     super(x, y, 20, 20);
-
     this.color = "white";
     this.size = 10;
 
@@ -119,15 +112,12 @@ class EvilCircle extends Shape {
     if ((this.x + this.size) >= width) {
       this.x -= this.size;
     }
-
     if ((this.x - this.size) <= 0) {
       this.x += this.size;
     }
-
     if ((this.y + this.size) >= height) {
       this.y -= this.size;
     }
-
     if ((this.y - this.size) <= 0) {
       this.y += this.size;
     }
@@ -148,10 +138,7 @@ class EvilCircle extends Shape {
       }
     }
   }
-
 }
-
-
 
 const balls = [];
 
@@ -183,7 +170,6 @@ function loop() {
       ball.collisionDetect();
     }
   }
-
   EBall.draw();
   EBall.checkBounds();
   EBall.collisionDetect();
