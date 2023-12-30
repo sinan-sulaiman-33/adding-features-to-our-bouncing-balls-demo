@@ -82,7 +82,6 @@ class EvilCircle extends Space {
     this.color = "white";
     this.size = 10;
     
-    
     window.addEventListener('keydown', (e) => {
       switch (e.key) {
         case 'a':
@@ -100,6 +99,7 @@ class EvilCircle extends Space {
       }
     });
 }
+  
   draw() {
       ctx.beginPath();
       ctx.lineWidth = 3;
@@ -122,6 +122,7 @@ class EvilCircle extends Space {
       this.y += this.size;
     }
   }
+  
   collisionDetect() {
     for (const ball of balls) {
       if (ball.exists) {
@@ -151,7 +152,6 @@ while (balls.length < 25) {
       randomRGB(),
       size
    );
-
   balls.push(ball);
   count++;
   para.textContent = 'Ball count: ' + count;
