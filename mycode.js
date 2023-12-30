@@ -1,4 +1,4 @@
- const para = document.querySelector('p');
+const para = document.querySelector('p');
 let count = 0;
 //wrong above
 
@@ -59,11 +59,11 @@ class Ball extends Shape {
       }
 
       if ((this.y + this.size) >= height) {
-         this.velY = -(this.velX); //different value after equal sign
+         this.velY = -(this.velY); //different value after equal sign
       }
 
       if ((this.y - this.size) <= 0) {
-         this.velY = -(this.velX); //different value after equal sign
+         this.velY = -(this.velY); //different value after equal sign
       }
 
       this.x += this.velX;
