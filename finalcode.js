@@ -83,18 +83,18 @@ class EvilCircle extends Space {
     this.size = 10;
     
     
-    window.addEventListener("keydown", (e) => {
+    window.addEventListener('keydown', (e) => {
       switch (e.key) {
-        case "a":
+        case 'a':
          this.x -= this.velX;
          break;
-        case "d":
+        case 'd':
          this.x += this.velX;
          break;
-        case "w":
+        case 'w':
           this.y -= this.velY;
           break;
-        case "s":
+        case 's':
           this.y += this.velY;
           break;
       }
